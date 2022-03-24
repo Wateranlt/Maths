@@ -8,7 +8,7 @@ private:
     int weigth;
     int heigth;
 public:
-    Matrix(int w, int h, float **matrix);
+    template<size_t h, size_t w> Matrix(float (*array)[h][w]);
     ~Matrix();
 };
 
