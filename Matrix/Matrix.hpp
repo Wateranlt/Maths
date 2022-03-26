@@ -8,8 +8,20 @@ private:
     int weigth;
     int heigth;
 public:
-    template<size_t h, size_t w> Matrix(float (*array)[h][w]);
-    ~Matrix();
+    template <typename Array> 
+    Matrix(Array& array) 
+    {
+        heigth = sizeof(array)/sizeof(array[0]), weigth = sizeof(array[0])/sizeof(array[0][0]);
+        matrix = new float*[heigth];
+        for (size_t i = 0; i < heigth; i++)
+        {
+            matrix[i] = new float[weigth];
+            for (size_t j = 0; j < weigth; j++)
+            {
+                matrix[i][j] = array[i][j];
+            }
+        }
+    }
 };
 
 #endif
