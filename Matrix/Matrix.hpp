@@ -10,9 +10,9 @@ private:
     int height;
 public:
     template <typename Array> 
-    Matrix(Array& array) 
+    Matrix(Array& array, int h, int w) 
     {
-        height = sizeof(array)/sizeof(array[0]), width = sizeof(array[0])/sizeof(array[0][0]);
+        height = h, width = w;
         matrix = new float*[height];
         for (size_t i = 0; i < height; i++)
         {
@@ -25,9 +25,18 @@ public:
     }
     void print() const;
     std::string toString() const;
-    int getwidth() const { return width; };
+    int getWidth() const { return width; };
     int getHeigth() const { return height; };
     float getComponent(int line, int column) const { return matrix[line - 1][column - 1]; };
+
+    //Operators
+    Matrix& operator+=(Matrix const& A);
+    Matrix& operator-=(Matrix const& A);
+    Matrix& operator*=(Matrix const& A);
+    Matrix& operator/=(Matrix const& A);
+    
+    
+    friend Matrix operator-(Matrix const& A);
 };
 
 #endif
