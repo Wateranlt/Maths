@@ -32,8 +32,6 @@ public:
     //Operators
     Matrix& operator+=(Matrix const& A);
     Matrix& operator-=(Matrix const& A);
-    Matrix& operator*=(Matrix const& A);
-    Matrix& operator/=(Matrix const& A);
     
     
     friend Matrix operator-(Matrix const& A);
