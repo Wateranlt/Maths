@@ -38,6 +38,7 @@ public:
     Matrix IdentityMatrix();
     //Operators
     Matrix& operator+=(Matrix const& A);
+    
     Matrix& operator-=(Matrix const& A);
     Matrix& operator*=(Matrix const& A);
     
